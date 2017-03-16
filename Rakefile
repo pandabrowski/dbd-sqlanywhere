@@ -25,7 +25,7 @@
 require 'rake/clean'
 require 'rdoc/task'
 require 'rubygems'
-require 'rubygems/builder'
+require 'rubygems/package'
 
 PACKAGE_NAME = "dbd-sqlanywhere"
 ARCH=RbConfig::CONFIG['arch']
@@ -75,7 +75,7 @@ file "dbd-sqlanywhere-#{pkg_version}.gem" => ['lib/dbd/SQLAnywhere.rb',
                                               'README', 
                                               'Rakefile', 
                                               'CHANGELOG'] do
-     Gem::Builder.new(spec).build						 
+     Gem::Package.build(spec)						 
 end
 
 desc "Install the gem"					      
